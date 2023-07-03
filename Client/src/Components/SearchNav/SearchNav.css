@@ -1,0 +1,114 @@
+.search__box{
+    display: flex;
+    position: relative;
+}
+.search__txt{
+    display: none;
+    font-size: 1.1em;
+    caret-color: rgb(255, 81, 0);
+    border-radius: 20px;
+}
+.search__btn{
+    width: 150px;
+    border-radius: 100vh;
+    padding: 7px 0px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.search__btn i{
+    margin-left: 5px;
+}
+.search__box:hover .search__txt{
+    display: block;
+    width: 300px;
+    padding: 5px;
+}
+.search__box:hover .search__btn{
+    display: none;
+}
+.search__box input[type="text"]:focus ~ .search-history{
+    content: "";
+    display: block;
+    z-index: 1;
+}
+.search-history{
+    width: 100%;
+    height: auto;
+    overflow-wrap: normal;
+    position: absolute;
+    top: 47px;
+    background-color: white;
+    display: none;
+    padding-top: 10px;
+}
+.search-history::after{
+    content: "Lịch sử tìm kiếm";
+    width: 100%;
+    height: 20px;
+    background-color: rgb(255, 246, 246);
+    position: absolute;
+    top: -16px;
+    text-align: center;
+}
+.history__link{
+    padding-left: 0px;
+    margin: 0px;
+}
+.history__link li{
+    list-style: none;
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.history__link li:hover{
+    content: "";
+    background-color: rgba(0,0,0,0.1);
+}
+.history__link li+li{
+    border-width: 100%;
+}
+.history__link li a i{
+    font-size: 1em;
+    margin: 0px 20px;
+    color: black;
+}
+.history__link li a .icon__close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0px;
+}
+.history__link li a{
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@media (max-width: 449px){
+    .search__box:hover .search__txt{
+        display: block;
+    }
+}
+@media (max-width: 450px) and (min-width: 767px){
+    .search__box:hover .search__txt{
+        display: block;
+        width: 100px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .search__box:hover .search__txt{
+        display: block;
+        width: 300px;
+    }
+}

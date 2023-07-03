@@ -1,0 +1,11 @@
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+.heading__icon i{
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}

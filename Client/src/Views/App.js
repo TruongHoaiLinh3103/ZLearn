@@ -19,6 +19,7 @@ import Dirung from "../Components/Menu__Product/Dirung/Dirung";
 import Tocchay from "../Components/Menu__Product/Tocchay/Tocchay";
 import Phutro from "../Components/Menu__Product/Phutro/Phutro";
 import ProductID from "../Components/ProductID/ProductID";
+import KenhNguoiBan from "../Components/KenhNguoiBan/KenhNguoiBan";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/kenhNguoiBan">
+            <KenhNguoiBan />
           </Route>
           <Route path="/register">
             <Register />

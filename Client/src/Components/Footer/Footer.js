@@ -39,7 +39,7 @@ class Footer extends Component {
                                         <h3>VỀ LELALEN</h3>
                                         {LenalenData.map((item) => {
                                             return(
-                                                <li><NavLink to="./">
+                                                <li><NavLink to="/kenhNguoiBan">
                                                     {item.name}
                                                 </NavLink></li>
                                             )

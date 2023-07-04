@@ -168,7 +168,16 @@ class RegisterFooter extends Component {
             this.mail() === 1 && 
             this.pass() === 1 &&  
             this.confirm() === 1 &&
-            console.log("The end")
+            axios.post("http://localhost:4000/auth", this.state).then(res => {
+                window.alert("Đăng kí thành công")
+                this.setState({
+                    fullname: "",
+                    useName: '',
+                    email: "",
+                    password: "",
+                    confirmPassword: "",
+                })
+            })
         }
         // NEXT PAGE SIGN IN
         this.signIn = () => {
@@ -185,35 +194,40 @@ class RegisterFooter extends Component {
                             <form class="form">
                                 <div class="input-group">
                                     <label for="fullname">Fullname</label>
-                                    <input type="text" name="fullname" id="fullname" placeholder="" 
+                                    <input type="text" name="fullname" id="fullname" placeholder=""
+                                    value={this.state.fullname}
                                     onChange={(e) => this.fullname(e)}
                                     onBlur={() => this.fullnameBlur()}
                                     />
                                 </div>
                                 <div class="input-group">
                                     <label for="username">Username</label>
-                                    <input type="text" name="username" id="username" placeholder="" 
+                                    <input type="text" name="username" id="username" placeholder=""
+                                    value={this.state.useName}
                                     onChange={(e) => this.useName(e)}
                                     onBlur={() =>this.useNameBlur()}
                                     />
                                 </div>
                                 <div class="input-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" placeholder="" 
+                                    <input type="email" name="email" id="email" placeholder=""
+                                    value={this.state.email}
                                     onChange={(e) => this.email(e)}
                                     onBlur={() => this.emailBlur()}
                                     />
                                 </div>
                                 <div class="input-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="" 
+                                    <input type="password" name="password" id="password" placeholder=""
+                                    value={this.state.password}
                                     onChange={(e) => this.password(e)}
                                     onBlur={() =>this.passwordBlur()}
                                     />
                                 </div>
                                 <div class="input-group">
                                     <label for="confirmPassword">Confirm Password</label>
-                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="" 
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder=""
+                                    value={this.state.confirmPassword}
                                     onChange={(e) => this.confirmPassword(e)}
                                     onBlur={() => this.confirmPasswordBlur()}
                                     />

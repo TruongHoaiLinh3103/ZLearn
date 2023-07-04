@@ -3,6 +3,7 @@ import '../../Styles/Grid.css';
 import './LoginFooterAndRegister.css'
 import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import axios from "axios";
 
 class LoginFooter extends Component {
     constructor(props) {
@@ -71,8 +72,12 @@ class LoginFooter extends Component {
         }
         // SIGN IN
         this.metho = () => {
-            this.user() === 1 && this.pass() === 1 && 
-            console.log("the end")
+            if(this.user() === 1 && this.pass() === 1){
+                const data = {useName: this.state.useName, password: this.state.password};
+                axios.post("http://localhost:4000/auth/login",data).then(res => {
+                    console.log(res.data)
+                })
+            }
         }
         
         // NEXT PAGE SIGN UP

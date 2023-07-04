@@ -57,7 +57,9 @@ class ProductID extends Component {
                 name: this.state.data.name,
                 giamGia: this.state.data.giamGia,
                 price: this.state.data.price
-            }).then()
+            }).then(res => {
+                window.alert("Thêm vào giỏ hàng thành công")
+            })
         }
     }
     async componentDidMount(){
@@ -77,7 +79,7 @@ class ProductID extends Component {
         return (
             <div>
                 {useData === false &&
-                    <div className="center" style={{width: "100%", textAlign: "center", margin: "10px 0px"}}>
+                    <div className="center" style={{width: "100%", textAlign: "center", margin: "10px 0px", display:"flex", flexDirection:"column"}}>
                         <div className="title"><h3>Thông tin sản phẩm</h3></div>
                         <div className="Name">
                             <img src={data.img} style={{width: "70%"}}></img>

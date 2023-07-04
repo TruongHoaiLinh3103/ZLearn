@@ -13,6 +13,8 @@ const commentRouter = require("./Routes/Comment");
 app.use("/comment", commentRouter);
 const cartRouter = require("./Routes/Cart");
 app.use("/cart", cartRouter);
+const authRouter = require("./Routes/Users")
+app.use("/auth", authRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(4000, () => {

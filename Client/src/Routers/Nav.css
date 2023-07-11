@@ -177,6 +177,17 @@ li {
     display: block;
 
 }
+/* Nút Đăng xuất */
+.body__logout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.logOut{
+    font-size: 1.1em;
+    color: black;
+}
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 449px){
     .hidden{

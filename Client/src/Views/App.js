@@ -39,12 +39,16 @@ function App() {
           <Route path="/kenhNguoiBan">
             <KenhNguoiBan />
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
+         {!sessionStorage.getItem("accessToken") && (
+          <>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+          </>
+         )}
           <Route path="/tanCong">
             <Tancong />
           </Route>

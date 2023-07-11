@@ -75,7 +75,13 @@ class LoginFooter extends Component {
             if(this.user() === 1 && this.pass() === 1){
                 const data = {useName: this.state.useName, password: this.state.password};
                 axios.post("http://localhost:4000/auth/login",data).then(res => {
-                    console.log(res.data)
+                    if(res.data.error){  
+                        window.alert(res.data.error)
+                    }
+                    else{
+                        sessionStorage.setItem("accessToken", res.data)
+                        this.props.history.push("/")
+                    }
                 })
             }
         }

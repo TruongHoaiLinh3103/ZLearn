@@ -2,6 +2,7 @@ const express = require("express");
 const { Users } = require("../models");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const {sign} = require("jsonwebtoken")
 
 router.get("/", async(req,res) => {
     const listUser = await Users.findAll()
@@ -30,15 +31,17 @@ router.post("/login", async (req, res) => {
         const {useName, password} = req.body;
         const user = await Users.findOne({where: {useName: useName}})
         if(!user){
-            res.json("Tài khoản không chính xác!")
+            res.json({error: "Tài khoản không chính xác!"
+        })
         }
         else{
             bcrypt.compare(password, user.password).then((same) => {
                 if(!same){
-                    res.json("Tài khoản sai hoặc mật khẩu không chính xác!")
+                    res.json({error: "Tài khoản sai hoặc mật khẩu không chính xác!"})
                 }
                 else{
-                    res.json("Login success!");
+                    const accessToken = sign({useName: user.useName, id: user.id}, "importantsecret");
+                    res.json(accessToken);
                 }
             })
         }

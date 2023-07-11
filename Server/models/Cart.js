@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         price: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     })
     return Cart;

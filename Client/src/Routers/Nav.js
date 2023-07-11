@@ -11,6 +11,10 @@ class Nav extends React.Component{
         this.img = () => {
             this.props.history.push("/")
         }
+        this.logOut = () => {
+            sessionStorage.removeItem("accessToken");
+            this.props.history.push("/c")
+        }
     }
     render(){
         return(
@@ -28,9 +32,15 @@ class Nav extends React.Component{
                         <li><NavLink to="/" activeClassName="selected" exact={true}><i className="fa-solid fa-house"></i>Trang chủ</NavLink></li>
                         <li><NavLink to="/cart" activeClassName="selected"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</NavLink></li>
                         <div className="Account">
-                            <li><NavLink to="/register" activeClassName="selected"><i className="fa-solid fa-user"></i>Đăng ký</NavLink></li>
-                            <span>|</span>
-                            <li><NavLink to="/login" activeClassName="selected"><i className="fa-solid fa-user"></i>Đăng nhập</NavLink></li>
+                            {!sessionStorage.getItem("accessToken") ? (
+                                <>
+                                    <li><NavLink to="/register" activeClassName="selected"><i className="fa-solid fa-user"></i>Đăng ký</NavLink></li>
+                                    <span>|</span>
+                                    <li><NavLink to="/login" activeClassName="selected"><i className="fa-solid fa-user"></i>Đăng nhập</NavLink></li>
+                                </>
+                            ) : (
+                                <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
+                            )}
                         </div>
                     </div>
                     {/* USING CHECKBOX HACK */}
@@ -56,8 +66,16 @@ class Nav extends React.Component{
                                     </div>
                                     </li>
                                     <li><NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</NavLink></li>
-                                    <li><NavLink to="/register"><i className="fa-solid fa-user"></i>Đăng ký</NavLink></li>
-                                    <li><NavLink to="/login"><i className="fa-solid fa-user"></i>Đăng nhập</NavLink></li>
+                                    {!sessionStorage.getItem("accessToken") ? (
+                                        <>
+                                            <li><NavLink to="/register"><i className="fa-solid fa-user"></i>Đăng ký</NavLink></li>
+                                            <li><NavLink to="/login"><i className="fa-solid fa-user"></i>Đăng nhập</NavLink></li>
+                                        </>
+                                    ) : 
+                                    (
+                                        <li className="body__logout" onClick={() => this.logOut()}><span className="logOut">Logout</span></li>
+                                    )
+                                    }
                                     <SearchNav></SearchNav>
                                 </ul>
                                 <label htmlFor="nav__bars" className="bars__box-icon">

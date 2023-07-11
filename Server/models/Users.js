@@ -21,5 +21,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         }
     });
+    Users.associate = (model) => {
+        Users.hasMany(model.Cart, {
+            onDelete: "cascade",
+        });
+    }
     return Users;
 }

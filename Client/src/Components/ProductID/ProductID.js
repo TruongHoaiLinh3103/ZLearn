@@ -21,26 +21,20 @@ class ProductID extends Component {
         }
         this.addComment = () => {
             const id = this.props.match.params.id;
-            axios.post(`http://localhost:4000/comment`, {
+            const data = {
                 Comment: this.state.Comment,
                 ProductId: id
-            }).then(res => {
-                const commentToApp = {Comment: this.state.Comment}
-                this.setState({
-                    comment: ([...this.state.comment, commentToApp]),
-                })
-                this.setState({
-                    Comment: ""
-                })
-            })
-        }
-        this.Enter = (e) => {
-            if(e.which === 13){
-                const id = this.props.match.params.id;
-                axios.post(`http://localhost:4000/comment`, {
-                    Comment: this.state.Comment,
-                    ProductId: id
-                }).then(res => {
+            }
+            axios.post(`http://localhost:4000/comment`, data,
+            {
+                headers: {
+                    accessToken: sessionStorage.getItem("accessToken")
+                }
+            }
+            ).then(res => {
+                if(res.data.error){
+                    alert("Vui lòng đăng nhập để bình luận")
+                }else{
                     const commentToApp = {Comment: this.state.Comment}
                     this.setState({
                         comment: ([...this.state.comment, commentToApp]),
@@ -48,17 +42,56 @@ class ProductID extends Component {
                     this.setState({
                         Comment: ""
                     })
+                }
+            })
+        }
+        this.Enter = (e) => {
+            if(e.which === 13){
+                const id = this.props.match.params.id;
+                const data = {
+                    Comment: this.state.Comment,
+                    ProductId: id
+                }
+                axios.post(`http://localhost:4000/comment`, data,
+                {
+                    headers: {
+                        accessToken: sessionStorage.getItem("accessToken")
+                    }
+                }
+                ).then(res => {
+                    if(res.data.error){
+                        alert("Vui lòng đăng nhập để bình luận")
+                    }else{
+                        const commentToApp = {Comment: this.state.Comment, username: res.data.username}
+                        this.setState({
+                            comment: ([...this.state.comment, commentToApp]),
+                        })
+                        this.setState({
+                            Comment: ""
+                        })
+                    }
                 })
             }
         }
         this.handleNextCart = () => {
-            axios.post("http://localhost:4000/cart", {
+            const data = {
                 img: this.state.data.img,
                 name: this.state.data.name,
                 giamGia: this.state.data.giamGia,
                 price: this.state.data.price
-            }).then(res => {
-                window.alert("Thêm vào giỏ hàng thành công")
+            }
+            axios.post("http://localhost:4000/cart", data,
+            {
+                headers: {
+                    accessToken: sessionStorage.getItem("accessToken")
+                }
+            }
+            ).then(res => {
+                if(res.data.error){
+                    alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng")
+                }else{
+                    alert("Thêm sản phẩm vào giỏ hàng thành công")
+                }
             })
         }
     }
@@ -117,7 +150,10 @@ class ProductID extends Component {
                             </div>
                             {this.state.comment.map((item) => {
                                 return(
-                                    <span style={{color: "blue"}}>{item.Comment}<br /></span>
+                                    <div style={{margin:"4px 0px"}}>
+                                        <label style={{color: 'black'}}>{item.username}: </label>
+                                        <span style={{color: "blue"}}>{item.Comment}<br /></span>
+                                    </div>
                                 )
                             })}
                         </div>

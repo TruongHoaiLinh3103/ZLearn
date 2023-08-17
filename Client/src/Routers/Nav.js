@@ -13,7 +13,7 @@ class Nav extends React.Component{
         }
         this.logOut = () => {
             sessionStorage.removeItem("accessToken");
-            this.props.history.push("/c")
+            this.props.history.push("/")
         }
     }
     render(){

@@ -20,6 +20,7 @@ import Tocchay from "../Components/Menu__Product/Tocchay/Tocchay";
 import Phutro from "../Components/Menu__Product/Phutro/Phutro";
 import ProductID from "../Components/ProductID/ProductID";
 import KenhNguoiBan from "../Components/KenhNguoiBan/KenhNguoiBan";
+import NotPage from "../Components/NotPage/NotPage";
 
 function App() {
   return (
@@ -39,16 +40,6 @@ function App() {
           <Route path="/kenhNguoiBan">
             <KenhNguoiBan />
           </Route>
-         {!sessionStorage.getItem("accessToken") && (
-          <>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-          </>
-         )}
           <Route path="/tanCong">
             <Tancong />
           </Route>
@@ -67,6 +58,15 @@ function App() {
           <Route path="/phuTro">
             <Phutro />
           </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="*">
+            <NotPage />
+          </Route> 
         </Switch>
       </div>
       <ToastContainer

@@ -130,7 +130,7 @@ class ProductID extends Component {
                                 style={{marginTop: "10px", width: "70%", border: "none", 
                                 outline: "none", padding: "5px", backgroundColor: "black", 
                                 color: 'white', borderRadius: '30px', 
-                                boxShadow: "5px", cursor:"pointer"}} onClick={() => this.handleNextCart()}>Thêm vào giảo hàng</button>
+                                boxShadow: "5px", cursor:"pointer"}} onClick={() => this.handleNextCart()}>Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                         <div className='Comment' style={{margin:"15px 0px"}}>
@@ -150,9 +150,27 @@ class ProductID extends Component {
                             </div>
                             {this.state.comment.map((item) => {
                                 return(
-                                    <div style={{margin:"4px 0px"}}>
-                                        <label style={{color: 'black'}}>{item.username}: </label>
-                                        <span style={{color: "blue"}}>{item.Comment}<br /></span>
+                                    <div style={{margin:"10px 0px", width:'300px', display:'flex'}}>
+                                        <label style={{color: 'blue', marginRight:"5px", justifyItems:"flex-start"}}>{item.username}: </label>
+                                        <span style={{
+                                            color: "black", 
+                                            marginRight:"20px",
+                                            display: "inline-block",
+                                            maxWidth: "80%",
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
+                                            whiteSpace: "nowrap",
+                                            flex: "1"
+                                        }}>{item.Comment}</span>
+                                        {sessionStorage.getItem("accessToken") &&
+                                            <span style={{
+                                                padding:"5px",
+                                                backgroundColor: 'black',
+                                                color:"white",
+                                                borderRadius: "100vh",
+                                                justifyItems:"flex-end"
+                                            }}>X</span>
+                                        }
                                     </div>
                                 )
                             })}

@@ -169,8 +169,7 @@ class ProductID extends Component {
                             {this.state.comment.map((item) => {
                                 return(
                                     <div key={item.id} style={{
-                                        margin:"10px 0px", width:'300px', display:'flex',
-                                    }}>
+                                        margin:"10px 0px", width:'300px', display:'flex'}}>
                                         <label style={{color: 'blue', marginRight:"5px", justifyItems:"flex-start"}}>{item.username}: </label>
                                         <span style={{
                                             color: "black", 

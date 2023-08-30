@@ -73,11 +73,11 @@ class Footer extends Component {
                                         <div className="link__QR">
                                             <a href="./"><img src={DowloadingImg} alt="Tải xuống" /></a>
                                         </div>
-                                        <div className="link__app">
+                                        {/* <div className="link__app">
                                             <a href="./"><img src="Asset/Img/39f189e19764dab688d3850742f13718.png" alt="" /></a>
                                             <a href="./"><img src="Asset/Img/f4f5426ce757aea491dce94201560583.png" alt="" /></a>
                                             <a href="./"><img src="Asset/Img/1ae215920a31f2fc75b00d4ee9ae8551.png" alt="" /></a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

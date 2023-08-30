@@ -9,11 +9,11 @@ const {validateToken} = require("../middlewares/authMiddlewares")
 //     res.json(listCart)
 // })
 
-router.get("/:username", async (req, res) => {
-    const username = req.params.username
-    const listCart = await Cart.findAll({where:{username: username}})
-    res.json(listCart)
-})
+// router.get("/:username", async (req, res) => {
+//     const username = req.params.username
+//     const listCart = await Cart.findAll({where:{username: username}})
+//     res.json(listCart)
+// })
 
 router.get("/", async (req, res) => {
     const listCart = await Cart.findAll();

@@ -49,5 +49,17 @@ router.post("/login", async (req, res) => {
     } catch (error) {
         res.send(error)
     }
-})
+});
+
+router.get("/login/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+        const user = await Users.findByPk(id);
+        res.json(user);
+    }
+    catch(error){
+        res.send(error)
+    }
+});
+
 module.exports = router;

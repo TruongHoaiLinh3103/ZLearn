@@ -81,7 +81,7 @@ class SearchNav extends React.Component {
                     <div className="search-history">
                         {name.map((item) => {
                             return(
-                                <ul className="history__link">
+                                <ul className="history__link" key={item.id}>
                                     <li key={item.id}><NavLink to="#" 
                                     onMouseDown={(e) => this.Down(e)}
                                     onMouseUp={(e) => this.up(e)}>

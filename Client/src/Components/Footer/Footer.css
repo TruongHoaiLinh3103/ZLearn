@@ -30,14 +30,15 @@
     list-style: none;
     margin-bottom: 12px;
 }
-.customer-care__list li a, .link__contact li a{
+.customer-care__list li a, .link__contact li a, .customer-care__list li{
     font-size: 12px;
     line-height: 14.4px;
     text-decoration: none;
     color: rgba(0,0,0,0.65);
 }
 .customer-care__list li a:hover,
- .link__contact li a:hover{
+ .link__contact li a:hover,
+ .customer-care__list li:hover{
     color: #83a4f7;
 }
 .img__customer ul{

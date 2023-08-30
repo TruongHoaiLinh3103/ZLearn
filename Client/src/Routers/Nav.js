@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import SearchNav from "../Components/SearchNav/SearchNav";
 import logo from '../../src/Assets/Img/logo.png';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import { connect } from 'react-redux';
 
 class Nav extends React.Component{
     constructor(){
@@ -11,12 +12,14 @@ class Nav extends React.Component{
         this.img = () => {
             this.props.history.push("/")
         }
-        this.logOut = () => {
+        this.logOut = (item) => {
             sessionStorage.removeItem("accessToken");
+            this.props.deleteUserRedux(item)
             this.props.history.push("/")
         }
     }
     render(){
+        let user = this.props.dataRedux;
         return(
             <div className='body'>
                 <nav className="navbar">
@@ -39,7 +42,11 @@ class Nav extends React.Component{
                                     <li><NavLink to="/login" activeClassName="selected"><i className="fa-solid fa-user"></i>Đăng nhập</NavLink></li>
                                 </>
                             ) : (
-                                <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
+                                user.map((item) => {
+                                    return(
+                                        <li className="body__logout" key={item.id}><span className="logOut" onClick={() => this.logOut(item)}>Logout</span></li>
+                                    )
+                                })
                             )}
                         </div>
                     </div>
@@ -73,7 +80,7 @@ class Nav extends React.Component{
                                         </>
                                     ) : 
                                     (
-                                        <li className="body__logout" onClick={() => this.logOut()}><span className="logOut">Logout</span></li>
+                                        <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
                                     )
                                     }
                                     <SearchNav></SearchNav>
@@ -88,4 +95,14 @@ class Nav extends React.Component{
         )
     }
 }
-export default withRouter(Nav);
+const MapStateToProps = (state) => {
+    return {
+        dataRedux: state.user
+    }
+}
+const MapDispatchToProps = (dispatch) => {
+    return{
+        deleteUserRedux: (userDelete) => dispatch({type: 'DELETE__USER', payload: userDelete}),
+    }
+}
+export default connect(MapStateToProps, MapDispatchToProps)(withRouter(Nav));

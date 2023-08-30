@@ -4,13 +4,14 @@ import './LoginFooterAndRegister.css'
 import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import axios from "axios";
+import { connect } from 'react-redux';
 
 class LoginFooter extends Component {
     constructor(props) {
         super(props);
         this.state = {
             useName: '',
-            password: ""
+            password: "",
         }
         // USERNAME
         this.useName = (e) => {
@@ -80,6 +81,10 @@ class LoginFooter extends Component {
                     }
                     else{
                         sessionStorage.setItem("accessToken", res.data)
+                        this.props.addUserRedux({
+                            id: Math.floor(Math.random() * 100000),
+                            username: this.state.useName
+                        })
                         this.props.history.push("/")
                     }
                 })
@@ -146,5 +151,14 @@ class LoginFooter extends Component {
         );
     }
 }
-
-export default withRouter(LoginFooter);
+const MapStateToProps = (state) => {
+    return {
+        dataRedux: state.user
+    }
+}
+const MapDispatchToProps = (dispatch) => {
+    return{
+        addUserRedux: (userAdd) => dispatch({type: 'ADD__USER', payload: userAdd})
+    }
+}
+export default connect(MapStateToProps, MapDispatchToProps)(withRouter(LoginFooter));

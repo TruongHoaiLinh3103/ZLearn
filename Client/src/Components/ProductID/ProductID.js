@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import Footer from "../Footer/Footer";
-
+import {toast} from "react-toastify";
+import { connect } from 'react-redux';
 class ProductID extends Component {
     constructor(){
         super()
@@ -35,6 +36,7 @@ class ProductID extends Component {
                 if(res.data.error){
                     alert("Vui lòng đăng nhập để bình luận")
                 }else{
+                    
                     const commentToApp = {Comment: this.state.Comment}
                     this.setState({
                         comment: ([...this.state.comment, commentToApp]),
@@ -94,6 +96,12 @@ class ProductID extends Component {
                 }
             })
         }
+        this.detail = (item) => {
+            toast.success(item)
+        }
+        this.deleteComment = () => {
+            console.log("xin chào")
+        }
     }
     async componentDidMount(){
         const id = this.props.match.params.id;
@@ -107,6 +115,7 @@ class ProductID extends Component {
         })
     }
     render() {
+        let user = this.props.dataRedux[0];
         let { data } = this.state;
         let useData = Object.keys(data).length === 0
         return (
@@ -133,7 +142,13 @@ class ProductID extends Component {
                                 boxShadow: "5px", cursor:"pointer"}} onClick={() => this.handleNextCart()}>Thêm vào giỏ hàng</button>
                             </div>
                         </div>
-                        <div className='Comment' style={{margin:"15px 0px"}}>
+                        <div className='Comment' style={{
+                            backgroundColor:"#f69bf7",
+                            marginTop:"10px",
+                            opacity:"0.5px",
+                            borderRadius: "20px",
+                            padding: "10px 20px"
+                        }}>
                             <div className="title" style={{display:"flex", justifyContent:"center"}}><h3>Bình luận sản phẩm</h3></div>
                             <div className="addCommentContainer">
                                 <input
@@ -146,11 +161,16 @@ class ProductID extends Component {
                                     onKeyDown={(e) => this.Enter(e)}
                                 />
                                 <button onClick={() => this.addComment()}
-                                style={{border:"none", padding: "5px", borderRadius: "20px"}}> Add Comment</button>
+                                style={{
+                                    border:"none", padding: "3px", borderRadius: "20px", marginLeft:"10px", backgroundColor: "white",
+                                    cursor:"pointer"
+                                }}> Add Comment</button>
                             </div>
                             {this.state.comment.map((item) => {
                                 return(
-                                    <div style={{margin:"10px 0px", width:'300px', display:'flex'}}>
+                                    <div key={item.id} style={{
+                                        margin:"10px 0px", width:'300px', display:'flex',
+                                    }}>
                                         <label style={{color: 'blue', marginRight:"5px", justifyItems:"flex-start"}}>{item.username}: </label>
                                         <span style={{
                                             color: "black", 
@@ -160,16 +180,20 @@ class ProductID extends Component {
                                             overflow: "hidden",
                                             textOverflow: "ellipsis",
                                             whiteSpace: "nowrap",
-                                            flex: "1"
-                                        }}>{item.Comment}</span>
-                                        {sessionStorage.getItem("accessToken") &&
+                                            flex: "1",
+                                            cursor:"pointer",
+                                        }}
+                                        onClick={() => this.detail(item.Comment)}>{item.Comment}</span>
+                                        {sessionStorage.getItem("accessToken") && item.username === user.username &&
                                             <span style={{
                                                 padding:"5px",
-                                                backgroundColor: 'black',
-                                                color:"white",
+                                                color:"black",
+                                                fontWeight: "700",
+                                                cursor:"pointer",
                                                 borderRadius: "100vh",
                                                 justifyItems:"flex-end"
-                                            }}>X</span>
+                                            }}
+                                            onClick={() => this.deleteComment()}>X</span>
                                         }
                                     </div>
                                 )
@@ -182,5 +206,10 @@ class ProductID extends Component {
         );
     }
 }
+const MapStateToProps = (state) => {
+    return {
+        dataRedux: state.user
+    }
+}
 
-export default withRouter(ProductID);
+export default connect(MapStateToProps)(withRouter(ProductID));

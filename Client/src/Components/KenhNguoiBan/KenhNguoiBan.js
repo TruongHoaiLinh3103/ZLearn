@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Footer from "../Footer/Footer";
 import "./KenhNguoiBan.css";
-import axios from "axios"
+import axios from "axios";
 
 class KenhNguoiBan extends Component {
     constructor(){
@@ -33,9 +33,21 @@ class KenhNguoiBan extends Component {
             })
         }
         this.addProduct = () => {
-            axios.post("http://localhost:4000/product", this.state).then(res => {
-                console.log("Success :)))")
-            })
+            if(this.state.price === "" || this.state.img === "" || this.state.giamGia ==="" || this.state.name ===""){
+                alert("Vui lòng nhập đầy đủ thông tin sản phẩm, thông tin không hợp lê!")
+            }else{
+                axios.post("http://localhost:4000/product", this.state, {
+                    headers: {
+                        accessToken: sessionStorage.getItem("accessToken")
+                    }
+                }).then(res => {
+                    if(res.data.error){
+                        alert("Vui lòng đăng nhập để bán sản phẩm!")
+                    }else{
+                        alert("Sản phẩm của bạn đã được phê duyệt để bán!")
+                    }
+                })
+            }
         }
     }
     render() {

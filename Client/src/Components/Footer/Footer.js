@@ -27,7 +27,7 @@ class Footer extends Component {
                                         <h3>CHĂM SÓC KHÁCH HÀNG</h3>
                                         {CustomerData.map((item) => {
                                             return(
-                                                <li><NavLink to="./">
+                                                <li key={item.id}><NavLink to="./">
                                                     {item.name}
                                                 </NavLink></li>
                                             )
@@ -39,9 +39,12 @@ class Footer extends Component {
                                         <h3>VỀ LELALEN</h3>
                                         {LenalenData.map((item) => {
                                             return(
-                                                <li><NavLink to="/kenhNguoiBan">
+                                                item.id === 5 ?
+                                                <li key={item.id}><NavLink to={item.link}>
                                                     {item.name}
                                                 </NavLink></li>
+                                                :
+                                                <li key={item.id}>{item.name}</li>
                                             )
                                         })}
                                     </ul>
@@ -59,7 +62,7 @@ class Footer extends Component {
                                     <ul className="link__contact">
                                         {LinkContactData.map((item) => {
                                             return(
-                                                <li><i className={item.icon}></i><a href="./">{item.name}</a></li>
+                                                <li key={item.id}><i className={item.icon}></i><a href="./">{item.name}</a></li>
                                             )
                                         })}
                                     </ul>

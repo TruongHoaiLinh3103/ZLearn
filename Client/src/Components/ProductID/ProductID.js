@@ -99,8 +99,17 @@ class ProductID extends Component {
         this.detail = (item) => {
             toast.success(item)
         }
-        this.deleteComment = () => {
-            console.log("xin chào")
+        this.deleteComment = (id) => {
+            axios.delete(`http://localhost:4000/comment/${id}`, {
+                headers: { accessToken: localStorage.getItem("accessToken") },
+            })
+            .then(() => {
+                this.setState({
+                    comment: this.state.comment.filter((val) => {
+                        return val.id !== id;
+                    })
+                });
+            });
         }
     }
     async componentDidMount(){
@@ -192,7 +201,7 @@ class ProductID extends Component {
                                                 borderRadius: "100vh",
                                                 justifyItems:"flex-end"
                                             }}
-                                            onClick={() => this.deleteComment()}>X</span>
+                                            onClick={() => this.deleteComment(item.id)}>X</span>
                                         }
                                     </div>
                                 )

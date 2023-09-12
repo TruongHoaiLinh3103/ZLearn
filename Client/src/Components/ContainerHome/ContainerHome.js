@@ -5,12 +5,14 @@ import '../../Styles/Basic.css';
 import { Category } from './Category'; 
 import { NavLink } from "react-router-dom";
 import AllProduct from './AllProduct/AllProduct';
+import Sliederlab from './Sliderlab/Sliederlab';
 
 class ContainerHome extends Component {
     render() {
         return (
             <div className='container'>
                 <div className="grid">
+                    <Sliederlab/>
                     <div className="grid__row">
                         <div className="grid__colum2 c__colum0 m__colum0">
                             <div className='title'>

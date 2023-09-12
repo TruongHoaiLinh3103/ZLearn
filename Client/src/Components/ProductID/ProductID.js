@@ -152,7 +152,8 @@ class ProductID extends Component {
                             </div>
                         </div>
                         <div className='Comment' style={{
-                            backgroundColor:"#f69bf7",
+                            backgroundColor:"rgb(238,174,202)",
+                            background:"radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
                             marginTop:"10px",
                             opacity:"0.5px",
                             borderRadius: "20px",

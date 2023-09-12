@@ -189,7 +189,7 @@ li {
     color: black;
 }
 /* APPLYING MEDIA QUERIES */
-@media (max-width: 449px){
+@media (max-width: 649px){
     .hidden{
         display: none;
     }

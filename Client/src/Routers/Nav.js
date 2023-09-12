@@ -85,9 +85,6 @@ class Nav extends React.Component{
                                     }
                                     <SearchNav></SearchNav>
                                 </ul>
-                                <label htmlFor="nav__bars" className="bars__box-icon">
-                                    <i className="fa-solid fa-xmark"></i>
-                                </label>
                             </div>
                         </div>
                 </nav>

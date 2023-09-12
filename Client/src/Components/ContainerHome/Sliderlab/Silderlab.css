@@ -63,4 +63,8 @@
 .Sliederlab-dots li.Sliederlab-dots_active{
     width: 30px;
 }
-
+@media only screen and (max-width: 46.1875em){
+    .Sliederlab{
+        height: 300px;
+    }
+}

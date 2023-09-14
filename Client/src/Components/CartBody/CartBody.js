@@ -34,7 +34,7 @@ class CartBody extends Component {
                                     return(
                                         <>
                                             {user === item.username &&
-                                                <div className='cart__body-body'>
+                                                <div className='cart__body-body' key={item.id}>
                                                     <div className='cart-body-body_checkboxAndImg'>
                                                         <input type='checkbox' className='cart-body-body_checkbox'></input>
                                                         <img src={item.img} alt='' className='body_checkboxAndImg-img'/>

@@ -100,16 +100,15 @@ class ProductID extends Component {
             toast.success(item)
         }
         this.deleteComment = (id) => {
-            axios.delete(`http://localhost:4000/comment/${id}`, {
-                headers: { accessToken: localStorage.getItem("accessToken") },
-            })
-            .then(() => {
+            axios.delete(`http://localhost:4000/comment/cmt/${id}`,{
+                headers: {
+                    accessToken: sessionStorage.getItem("accessToken")
+                }
+            }).then(() =>{
                 this.setState({
-                    comment: this.state.comment.filter((val) => {
-                        return val.id !== id;
-                    })
-                });
-            });
+                    comment: this.state.comment.filter(item => item.id !== id)
+                })
+            })
         }
     }
     async componentDidMount(){
@@ -133,7 +132,7 @@ class ProductID extends Component {
                     <div className="center" style={{width: "100%", textAlign: "center", margin: "10px 0px", display:"flex", flexDirection:"column"}}>
                         <div className="title"><h3>Thông tin sản phẩm</h3></div>
                         <div className="Name">
-                            <img src={data.img} style={{width: "70%"}}></img>
+                            <img src={data.img} style={{width: "70%"}} alt=''/>
                             <p>Tên sản phẩm: {data.name}</p>
                             <p>Giảm giá: {data.giamGia}</p> 
                             <p>Giá sản phẩm: {data.price}</p>
@@ -144,7 +143,7 @@ class ProductID extends Component {
                                 outline: "none", padding: "5px", backgroundColor: "black", 
                                 color: 'white', borderRadius: '30px', boxShadow: "5px"}}>Back</button>
 
-                                <button onCLick={() => this.addCart()} 
+                                <button onClick={() => this.addCart()} 
                                 style={{marginTop: "10px", width: "70%", border: "none", 
                                 outline: "none", padding: "5px", backgroundColor: "black", 
                                 color: 'white', borderRadius: '30px', 

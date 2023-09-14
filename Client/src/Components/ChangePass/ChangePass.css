@@ -1,0 +1,51 @@
+.ChangePass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.ChangePass-box{
+    width: 300px;
+    height: 320px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    background-color: #fff2;
+}
+.ChangePass-box h2{
+    margin: 15px 0px 0px 15px;
+    color: black;
+    font-weight: lighter;
+    user-select: none;
+}
+.ChangePass-box_item{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+    align-items: center;
+}
+.ChangePass-box_item input{
+    height: 30px;
+    padding-left: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: black;
+}
+.ChangePass-box_item button{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 80%;
+    height: 50px;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    color: white;
+    background-color: var(--my-color);
+    font-weight: 500;
+    transition: 1s;
+    cursor: pointer;
+}
+.ChangePass-box_item button:hover{
+    background-color: rgb(10, 10, 255);
+}

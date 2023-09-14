@@ -25,16 +25,16 @@ class AllProduct extends Component {
     }
     render() {
         return (
-            <div class="grid__row">
+            <div className="grid__row">
                 {this.state.product.map((item) => {
                     return(
-                        <div class="grid__colum2-5 c__colum6 m__colum3" key={item.id} onClick={() => this.click(item)}>
-                            <div class="card__product">
-                                <img class="card__product-img" src={item.img}></img>
-                                <div class="card__product-textBox">
-                                    <p class="card__product-text head">{item.name}</p>
+                        <div className="grid__colum2-5 c__colum6 m__colum3" key={item.id} onClick={() => this.click(item)}>
+                            <div className="card__product">
+                                <img className="card__product-img" src={item.img} alt=''/>
+                                <div className="card__product-textBox">
+                                    <p className="card__product-text head">{item.name}</p>
                                     <span>Giảm giá {item.giamGia}</span>
-                                    <p class="card__product-text price">{item.price}</p>
+                                    <p className="card__product-text price">{item.price}</p>
                                 </div>
                             </div>
                         </div>

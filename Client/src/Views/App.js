@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import React from "react";
-import Nav from '../Routers/Nav';
+import Nav from "../Components/Nav/Nav";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +21,7 @@ import Phutro from "../Components/Menu__Product/Phutro/Phutro";
 import ProductID from "../Components/ProductID/ProductID";
 import KenhNguoiBan from "../Components/KenhNguoiBan/KenhNguoiBan";
 import NotPage from "../Components/NotPage/NotPage";
+import ChangePass from "../Components/ChangePass/ChangePass";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/kenhNguoiBan">
             <KenhNguoiBan />
+          </Route>
+          <Route path="/changePass">
+            <ChangePass />
           </Route>
           <Route path="/tanCong">
             <Tancong />

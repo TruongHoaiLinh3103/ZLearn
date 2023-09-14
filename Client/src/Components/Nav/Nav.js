@@ -1,8 +1,8 @@
 import React from "react";
 import './Nav.css';
 import { NavLink } from "react-router-dom";
-import SearchNav from "../Components/SearchNav/SearchNav";
-import logo from '../../src/Assets/Img/logo.png';
+import SearchNav from '../SearchNav/SearchNav'
+import logo from '../../Assets/Img/logo.png';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { connect } from 'react-redux';
 
@@ -60,7 +60,7 @@ class Nav extends React.Component{
                             <div className="navbar__body">
                                 <ul className="bars__box-nav">
                                     <li><NavLink to="/"><i className="fa-solid fa-house"></i>Trang chủ</NavLink></li>
-                                    <li className="listProductHidden"><NavLink to="#" style={{cursor: "pointer"}}><i class="fa-solid fa-hand-holding-heart"></i>Danh mục sản phẩm</NavLink>
+                                    <li className="listProductHidden"><NavLink to="#" style={{cursor: "pointer"}}><i className="fa-solid fa-hand-holding-heart"></i>Danh mục sản phẩm</NavLink>
                                     <div className="all__product">
                                         <ul>
                                             <li><NavLink to="/tanCong">Tấn công</NavLink></li>

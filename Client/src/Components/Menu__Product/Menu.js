@@ -15,7 +15,7 @@ class Menu extends Component {
                 <div className='menu__product-heading grid'>
                     <div className='grid__colum12 heading'>
                         <div className='heading__icon grid__colum2'>
-                            <i class="fa-solid fa-chevron-left" onClick={() => this.black()}></i>
+                            <i className="fa-solid fa-chevron-left" onClick={() => this.black()}></i>
                         </div>
                         <Soft></Soft>
                     </div>

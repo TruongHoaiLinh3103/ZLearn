@@ -21,7 +21,7 @@ class ContainerHome extends Component {
                             <ul className='Category'>
                                 {Category.map((item) => {
                                     return(
-                                        <li><NavLink to={item.idLink} activeClassName="selec">{item.name}</NavLink></li>
+                                        <li key={item.id}><NavLink to={item.idLink} activeClassName="selec">{item.name}</NavLink></li>
                                     )
                                 })}
                             </ul>

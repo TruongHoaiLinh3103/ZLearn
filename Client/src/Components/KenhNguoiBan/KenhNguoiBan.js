@@ -53,9 +53,9 @@ class KenhNguoiBan extends Component {
     render() {
         return (
             <div className='grid'>
-                <div class="center">
-                    <form class="content__form">
-                        <div class="content__inputs">
+                <div className="center">
+                    <form className="content__form">
+                        <div className="content__inputs">
                         <label>
                             <input required="" type="text" onChange={(e) => this.img(e)} value={this.state.img} />
                             <span>Link ảnh sản phẩm</span>

@@ -62,14 +62,14 @@ class Sliederlab extends Component {
                     )
                 })}
                 <div className='Sliederlab-btn'>
-                    <button id='prev' onClick={() => this.prev()}><i class="fa-solid fa-arrow-left"></i></button>
-                    <button id='next' onClick={() => this.next()}><i class="fa-solid fa-arrow-right"></i></button>
+                    <button id='prev' onClick={() => this.prev()}><i className="fa-solid fa-arrow-left"></i></button>
+                    <button id='next' onClick={() => this.next()}><i className="fa-solid fa-arrow-right"></i></button>
                 </div>
                 <ul className='Sliederlab-dots'>
                     {IMGDATA.map((item) => {
                         let addClass = this.state.number === item.id - 1 ? "Sliederlab-dots_active" : '';
                         return(
-                            <li className={addClass} onClick={() => this.detail(item)}></li>
+                            <li className={addClass} onClick={() => this.detail(item)} key={item.id}></li>
                         )
                     })}
                 </ul>

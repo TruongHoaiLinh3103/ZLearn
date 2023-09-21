@@ -10,7 +10,6 @@ class KenhNguoiBan extends Component {
             img: "",
             name: "",
             giamGia: "",
-            price: ""
         }
         this.img = (e) => {
             this.setState({
@@ -22,19 +21,14 @@ class KenhNguoiBan extends Component {
                 name: e.target.value
             })
         }
-        this.giamGia = (e) => {
+        this.loaiMuc = (e) => {
             this.setState({
                 giamGia: e.target.value
             })
         }
-        this.price = (e) => {
-            this.setState({
-                price: e.target.value
-            })
-        }
         this.addProduct = () => {
-            if(this.state.price === "" || this.state.img === "" || this.state.giamGia ==="" || this.state.name ===""){
-                alert("Vui lòng nhập đầy đủ thông tin sản phẩm, thông tin không hợp lê!")
+            if(this.state.img === "" || this.state.loaiMuc ==="" || this.state.name ===""){
+                alert("Vui lòng nhập đầy đủ thông tin của mục, thông tin không hợp lê!")
             }else{
                 axios.post("http://localhost:4000/product", this.state, {
                     headers: {
@@ -42,9 +36,9 @@ class KenhNguoiBan extends Component {
                     }
                 }).then(res => {
                     if(res.data.error){
-                        alert("Vui lòng đăng nhập để bán sản phẩm!")
+                        alert("Vui lòng đăng nhập để đăng mục!")
                     }else{
-                        alert("Sản phẩm của bạn đã được phê duyệt để bán!")
+                        alert("Mục của bạn đã được phê duyệt!")
                     }
                 })
             }
@@ -58,19 +52,15 @@ class KenhNguoiBan extends Component {
                         <div className="content__inputs">
                         <label>
                             <input required="" type="text" onChange={(e) => this.img(e)} value={this.state.img} />
-                            <span>Link ảnh sản phẩm</span>
+                            <span>Ảnh mục</span>
                         </label>
                         <label>
                             <input required="" type="text" onChange={(e) => this.name(e)} value={this.state.name} />
-                            <span>Tên sản phẩm</span>
+                            <span>Tên mục</span>
                         </label>
                         <label>
-                            <input required="" type="text" onChange={(e) => this.giamGia(e)} value={this.state.giamGia} />
-                            <span>Giảm giá</span>
-                        </label>
-                        <label>
-                            <input required="" type="text" onChange={(e) => this.price(e)} value={this.state.price} />
-                            <span>Giá sản phẩm</span>
+                            <input required="" type="text" onChange={(e) => this.loaiMuc(e)} value={this.state.giamGia} />
+                            <span>Loại mục</span>
                         </label>
                         </div>
                         <button onClick={() => this.addProduct()} >Add sản phẩm</button>

@@ -33,8 +33,7 @@ class AllProduct extends Component {
                                 <img className="card__product-img" src={item.img} alt=''/>
                                 <div className="card__product-textBox">
                                     <p className="card__product-text head">{item.name}</p>
-                                    <span>Giảm giá {item.giamGia}</span>
-                                    <p className="card__product-text price">{item.price}</p>
+                                    <span>Loại: {item.giamGia}</span>
                                 </div>
                             </div>
                         </div>

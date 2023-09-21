@@ -80,7 +80,6 @@ class ProductID extends Component {
                 img: this.state.data.img,
                 name: this.state.data.name,
                 giamGia: this.state.data.giamGia,
-                price: this.state.data.price
             }
             axios.post("http://localhost:4000/cart", data,
             {
@@ -90,9 +89,9 @@ class ProductID extends Component {
             }
             ).then(res => {
                 if(res.data.error){
-                    alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng")
+                    alert("Vui lòng đăng nhập để thêm vào mục yêu thích")
                 }else{
-                    alert("Thêm sản phẩm vào giỏ hàng thành công")
+                    alert("Thêm vào mục yêu thích thành công")
                 }
             })
         }
@@ -130,12 +129,11 @@ class ProductID extends Component {
             <div>
                 {useData === false &&
                     <div className="center" style={{width: "100%", textAlign: "center", margin: "10px 0px", display:"flex", flexDirection:"column"}}>
-                        <div className="title"><h3>Thông tin sản phẩm</h3></div>
+                        <div className="title"><h3>Thông tin chi tiết</h3></div>
                         <div className="Name">
                             <img src={data.img} style={{width: "70%"}} alt=''/>
                             <p>Tên sản phẩm: {data.name}</p>
-                            <p>Giảm giá: {data.giamGia}</p> 
-                            <p>Giá sản phẩm: {data.price}</p>
+                            <p>Loại: {data.giamGia}</p> 
                             <br></br>
                             <div style={{display: "flex", flexDirection:"column", alignItems: "center"}}>
                                 <button onClick={() => this.handleBackNotification()} 
@@ -143,11 +141,11 @@ class ProductID extends Component {
                                 outline: "none", padding: "5px", backgroundColor: "black", 
                                 color: 'white', borderRadius: '30px', boxShadow: "5px"}}>Back</button>
 
-                                <button onClick={() => this.addCart()} 
+                                <button
                                 style={{marginTop: "10px", width: "70%", border: "none", 
                                 outline: "none", padding: "5px", backgroundColor: "black", 
                                 color: 'white', borderRadius: '30px', 
-                                boxShadow: "5px", cursor:"pointer"}} onClick={() => this.handleNextCart()}>Thêm vào giỏ hàng</button>
+                                boxShadow: "5px", cursor:"pointer"}} onClick={() => this.handleNextCart()}>Thêm vào mục yêu thích</button>
                             </div>
                         </div>
                         <div className='Comment' style={{

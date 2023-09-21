@@ -16,7 +16,7 @@ class ContainerHome extends Component {
                     <div className="grid__row">
                         <div className="grid__colum2 c__colum0 m__colum0">
                             <div className='title'>
-                                <h3>Danh mục sản phẩm</h3>
+                                <h3>Danh mục</h3>
                             </div>
                             <ul className='Category'>
                                 {Category.map((item) => {
@@ -28,7 +28,7 @@ class ContainerHome extends Component {
                         </div>
                         <div className="grid__colum10 c__colum12 m__colum12">
                             <div className='title'>
-                                <h3>Sản phẩm được đề xuất</h3>
+                                <h3>Đề xuất</h3>
                             </div>
                             <div className='home-product'>
                                 <AllProduct></AllProduct>

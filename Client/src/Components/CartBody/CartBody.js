@@ -26,7 +26,7 @@ class CartBody extends Component {
                 <div className='grid__row'>
                     <div className='grid__colum12'>
                         <div className='title'>
-                            <h3>Các sản phẩm đã được thêm vào giỏ hàng</h3>
+                            <h3>Các mục yêu thích</h3>
                         </div>
                         {user ? 
                             <div className='cart__body'>
@@ -41,8 +41,7 @@ class CartBody extends Component {
                                                     </div>
                                                     <div className='cart__body-body_nameAndPrice'>
                                                         <span className='body_tittleAndPrice-name'>{item.name}</span>
-                                                        <span className='body_tittleAndPrice-price'>{item.price}</span>
-                                                        <span className="body_tittleAndPrice-voucher">Giảm giá {item.giamGia}</span>
+                                                        <span className="body_tittleAndPrice-voucher">Loại: {item.giamGia}</span>
                                                     </div>
                                                 </div>
                                             }
@@ -60,7 +59,7 @@ class CartBody extends Component {
                                     lineHeight: "24px",
                                     margin: "40px",
                                 }}
-                                >Không có sản phẩm nào trong giỏ hàng của bạn</h2>
+                                >Không có mục yêu thích</h2>
                                 <img src={cart} alt='' style={{width:"200px"}}></img>
                             </div>
                         }

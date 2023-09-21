@@ -20,7 +20,7 @@ li {
 /* NAVBAR STYLING STARTS */
 .navbar {
     width: 100%;
-    height: 75px;
+    height: 115px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,8 +30,8 @@ li {
 
 /* LOGO */
 .logo__shop img{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 

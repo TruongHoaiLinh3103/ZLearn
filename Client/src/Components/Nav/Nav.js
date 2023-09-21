@@ -1,8 +1,7 @@
 import React from "react";
 import './Nav.css';
 import { NavLink } from "react-router-dom";
-import SearchNav from '../SearchNav/SearchNav'
-import logo from '../../Assets/Img/logo.png';
+import logo from '../../Assets/Img/d252646740d1958fccc0.jpg';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { connect } from 'react-redux';
 
@@ -27,13 +26,10 @@ class Nav extends React.Component{
                     <div className="logo__shop">
                         <img src={logo} alt="" onClick={() => this.img()}/>
                     </div>
-                    <div className="hidden">
-                        <SearchNav />
-                    </div>
                     {/* NAVIGATION MENU */}
                     <div className="menu">
                         <li><NavLink to="/" activeClassName="selected" exact={true}><i className="fa-solid fa-house"></i>Trang chủ</NavLink></li>
-                        <li><NavLink to="/cart" activeClassName="selected"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</NavLink></li>
+                        <li><NavLink to="/love" activeClassName="selected"><i className="fa-solid fa-heart"></i>Yêu thích</NavLink></li>
                         <div className="Account">
                             {!sessionStorage.getItem("accessToken") ? (
                                 <>
@@ -60,7 +56,7 @@ class Nav extends React.Component{
                             <div className="navbar__body">
                                 <ul className="bars__box-nav">
                                     <li><NavLink to="/"><i className="fa-solid fa-house"></i>Trang chủ</NavLink></li>
-                                    <li className="listProductHidden"><NavLink to="#" style={{cursor: "pointer"}}><i className="fa-solid fa-hand-holding-heart"></i>Danh mục sản phẩm</NavLink>
+                                    <li className="listProductHidden"><NavLink to="#" style={{cursor: "pointer"}}><i className="fa-solid fa-hand-holding-heart"></i>Danh mục</NavLink>
                                     <div className="all__product">
                                         <ul>
                                             <li><NavLink to="/tanCong">Tấn công</NavLink></li>
@@ -72,7 +68,7 @@ class Nav extends React.Component{
                                         </ul>
                                     </div>
                                     </li>
-                                    <li><NavLink to="/cart"><i className="fa-solid fa-cart-shopping"></i>Giỏ hàng</NavLink></li>
+                                    <li><NavLink to="/love"><i className="fa-solid fa-heart"></i>Yêu thích</NavLink></li>
                                     {!sessionStorage.getItem("accessToken") ? (
                                         <>
                                             <li><NavLink to="/register"><i className="fa-solid fa-user"></i>Đăng ký</NavLink></li>
@@ -83,7 +79,6 @@ class Nav extends React.Component{
                                         <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
                                     )
                                     }
-                                    <SearchNav></SearchNav>
                                 </ul>
                             </div>
                         </div>

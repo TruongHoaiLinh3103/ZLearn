@@ -36,7 +36,7 @@ class Footer extends Component {
                                 </div>
                                 <div className="grid__colum25 c__colum12 m__colum6">
                                     <ul className="customer-care__list">
-                                        <h3>VỀ LELALEN</h3>
+                                        <h3>VỀ BOXCHAT</h3>
                                         {LenalenData.map((item) => {
                                             return(
                                                 item.id === 5 ?

@@ -1,7 +1,7 @@
 export const LenalenData = [
     {
         id: 1,
-        name: 'Giới thiệu về Lelalen Việt Nam'
+        name: 'Giới thiệu box chat liên quân'
     },
     {
         id: 2,
@@ -17,19 +17,15 @@ export const LenalenData = [
     },
     {
         id: 5,
-        name: "Kênh người bán",
+        name: "update",
         link: "/kenhNguoiBan"
     },
     {
         id: 6,
-        name: "Flash sale"
-    },
-    {
-        id: 7,
         name: "Chương trình tiếp thị liên kết"
     },
     {
-        id: 8,
+        id: 7,
         name: "Liên hệ với truyền thông"
     }
 ]

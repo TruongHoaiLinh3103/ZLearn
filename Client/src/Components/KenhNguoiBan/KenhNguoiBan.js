@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from "../Footer/Footer";
 import "./KenhNguoiBan.css";
 import axios from "axios";
 
@@ -65,9 +64,6 @@ class KenhNguoiBan extends Component {
                         </div>
                         <button onClick={() => this.addProduct()} >Add sản phẩm</button>
                     </form>
-                </div>
-                <div>
-                    <Footer></Footer>
                 </div>
             </div>
             

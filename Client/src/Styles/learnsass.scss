@@ -1,0 +1,101 @@
+@import './variable.scss';
+.LearnScss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 500px;
+    h1{
+        @extend %title;
+    }
+    ul{
+        padding-left: 0px;
+        li{
+            list-style: none;
+            text-align: center;
+            a{
+                font-size: $fontsize;
+                text-decoration: none;
+                color: black;
+                transition: .3s all linear;
+                &:hover{
+                    color: $color;
+                }
+            }
+        }
+        li + li{
+            margin-top: 20px;
+        }
+    }
+    .LearnScss-btn{
+        .ss{
+            @include button;
+            &:hover{
+                @include button(rgb(207, 141, 19))
+            }
+        }
+        .wn{
+            @include button(rgb(207, 141, 19));
+            &:hover{
+                @include button(red);
+            }
+        }
+        .er{
+            @include button(red);
+            &:hover{
+                @include button;
+            }
+        }
+    }
+    h3{
+        @extend %title;
+    }
+}
+
+// NETTING : 
+// element 1{
+//     atribute
+//     element 2{
+//         ...
+//     }
+//     element 2 + element 2{
+//         ...
+        // &:hover{
+            
+        // }
+//     }
+// }
+
+// VARIABLE :
+// variable:
+// $myColor : black;
+// use:
+// @import "...";
+// color: $myColor
+
+// MIXIN:
+// varriable:
+// @mixin theme($bgColor : black){
+//     atribute: $bgColor;
+//     atribute;
+//     ...
+// } 
+// use:
+// @import "...";
+// @include theme || @include theme(...);
+
+// EXTEND:
+// variable:
+// %title{
+//     color: #444444;
+//     font-family: proxima-nova;
+//     font-size: 18px;
+//     font-weight: 700;
+//     letter-spacing: 1px;
+//     line-height: 27px;
+//     margin: 0px 0px 90px;
+//     text-transform: uppercase;
+// }
+// use:
+// @import "...";
+// @extend %title

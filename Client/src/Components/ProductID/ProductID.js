@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import Footer from "../Footer/Footer";
 import {toast} from "react-toastify";
 import { connect } from 'react-redux';
 class ProductID extends Component {
@@ -207,7 +206,6 @@ class ProductID extends Component {
                         </div>
                     </div>
                 }
-                <Footer></Footer>
             </div>
         );
     }

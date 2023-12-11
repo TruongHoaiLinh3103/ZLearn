@@ -22,12 +22,14 @@ import ProductID from "../Components/ProductID/ProductID";
 import KenhNguoiBan from "../Components/KenhNguoiBan/KenhNguoiBan";
 import NotPage from "../Components/NotPage/NotPage";
 import ChangePass from "../Components/ChangePass/ChangePass";
+import Quanli from "../Pages/QuanLi/Quanli";
+import Footer from "../Components/Footer/Footer";
 
 function App() {
   return (
     <Router>
-      <div>
-        <Nav />
+      <Nav />
+      <div style={{height: "100%", padding: "50px"}}>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -37,6 +39,9 @@ function App() {
           </Route>
           <Route path="/love">
             <Cart />
+          </Route>
+          <Route path="/quanli">
+            <Quanli />
           </Route>
           <Route path="/kenhNguoiBan">
             <KenhNguoiBan />
@@ -73,6 +78,7 @@ function App() {
           </Route> 
         </Switch>
       </div>
+      <Footer/>
       <ToastContainer
         position="top-right"
         autoClose={1000}

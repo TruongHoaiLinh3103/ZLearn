@@ -65,6 +65,7 @@ class Nav extends React.Component{
                                             <li><NavLink to="/diRung">Đi rừng</NavLink></li>
                                             <li><NavLink to="/tocChay">Tốc chạy</NavLink></li>
                                             <li><NavLink to="/phuTro">Phụ trợ</NavLink></li>
+                                            <li><NavLink to="/quanli">Quản lí</NavLink></li>
                                         </ul>
                                     </div>
                                     </li>

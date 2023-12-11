@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from "../../Footer/Footer";
 import Menu from '../Menu';
 import AllProduct from  "../../ContainerHome/AllProduct/AllProduct"
 class Tancong extends Component {
@@ -10,7 +9,6 @@ class Tancong extends Component {
                 <div className='grid'>
                 <AllProduct></AllProduct>
                 </div>
-                <Footer></Footer>
             </div>
         );
     }

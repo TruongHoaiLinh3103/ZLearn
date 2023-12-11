@@ -29,4 +29,9 @@ export const Category = [
         idLink: "/phuTro",
         name: "Phụ trợ"
     },
+    {
+        id: 7,
+        idLink: "/quanli",
+        name: "Quản lí"
+    },
 ]

@@ -1,6 +1,5 @@
 // import React, { Component } from 'react';
 // import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
-// import "../../Styles/home.scss";
 // import image from "../../Assets/Img/abc.png";
 // import { connect } from 'react-redux';
 // import { toast } from 'react-toastify';
@@ -102,7 +101,6 @@
 
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import "../../Styles/home.scss";
 import image from "../../Assets/Img/abc.png";
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';

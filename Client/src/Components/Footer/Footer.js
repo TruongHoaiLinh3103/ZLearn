@@ -24,7 +24,7 @@ class Footer extends Component {
                             <div className="grid__row box__contact">
                                 <div className="grid__colum25 c__colum12 m__colum6">
                                     <ul className="customer-care__list">
-                                        <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+                                        <h3>HƯỚNG DẪN</h3>
                                         {CustomerData.map((item) => {
                                             return(
                                                 <li key={item.id}><NavLink to="./">
@@ -39,7 +39,7 @@ class Footer extends Component {
                                         <h3>VỀ BOXCHAT</h3>
                                         {LenalenData.map((item) => {
                                             return(
-                                                item.id === 5 ?
+                                                item.id === 3 ?
                                                 <li key={item.id}><NavLink to={item.link}>
                                                     {item.name}
                                                 </NavLink></li>

@@ -80,6 +80,9 @@ class Nav extends React.Component{
                                         <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
                                     )
                                     }
+                                    <div style={{width: "100%", display:"flex", alignItems: "center", justifyContent:"center"}}>
+                                        <label htmlFor="nav__bars" style={{width: "30px", height: "30px", borderRadius: '100vh', color: "black", border: "2px solid black", cursor:"pointer", textAlign: "center"}}>X</label>
+                                    </div>
                                 </ul>
                             </div>
                         </div>

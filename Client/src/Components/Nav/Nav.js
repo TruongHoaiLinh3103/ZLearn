@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import logo from '../../Assets/Img/d252646740d1958fccc0.jpg';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import { connect } from 'react-redux';
+import { mapDispatchToProps, mapStateToProps } from "../../Redux/action/Login";
 
 class Nav extends React.Component{
     constructor(){
@@ -13,12 +14,12 @@ class Nav extends React.Component{
         }
         this.logOut = (item) => {
             sessionStorage.removeItem("accessToken");
-            this.props.deleteUserRedux(item)
+            this.props.deleteUser(item)
             this.props.history.push("/")
         }
     }
     render(){
-        let user = this.props.dataRedux;
+        let user = this.props.dataUser;
         return(
             <div className='body'>
                 <nav className="navbar">
@@ -77,7 +78,11 @@ class Nav extends React.Component{
                                         </>
                                     ) : 
                                     (
-                                        <li className="body__logout"><span className="logOut" onClick={() => this.logOut()}>Logout</span></li>
+                                        user.map((item) => {
+                                        return(
+                                            <li className="body__logout" key={item.id}><span className="logOut" onClick={() => this.logOut(item)}>Logout</span></li>
+                                        )
+                                })
                                     )
                                     }
                                     <div style={{width: "100%", display:"flex", alignItems: "center", justifyContent:"center"}}>
@@ -91,14 +96,5 @@ class Nav extends React.Component{
         )
     }
 }
-const MapStateToProps = (state) => {
-    return {
-        dataRedux: state.user
-    }
-}
-const MapDispatchToProps = (dispatch) => {
-    return{
-        deleteUserRedux: (userDelete) => dispatch({type: 'DELETE__USER', payload: userDelete}),
-    }
-}
-export default connect(MapStateToProps, MapDispatchToProps)(withRouter(Nav));
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Nav));

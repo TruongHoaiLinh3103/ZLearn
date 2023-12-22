@@ -5,7 +5,7 @@ const initState = {
         {id: 3, name: 'Nguyễn Thị Kiều Thu', age: 20}
     ],
 }
-const rootReducer = (state = initState, action) => {
+const rootTodo = (state = initState, action) => {
     switch(action.type){
         case 'DELETE__USER':
             let user = state.user;
@@ -23,4 +23,4 @@ const rootReducer = (state = initState, action) => {
     }
 };
 
-export default rootReducer;
+export default rootTodo;

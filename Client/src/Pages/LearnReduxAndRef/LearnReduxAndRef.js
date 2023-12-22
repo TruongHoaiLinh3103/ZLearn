@@ -1,12 +1,18 @@
 import React from 'react';
-import { useReducer } from 'react';
-import rootNumber from '../../Redux/rootNumber';
+// import { useReducer } from 'react';
+// import rootNumber from '../../Redux/reducer/rootNumber';
 import { useRef, useLayoutEffect, useEffect } from 'react';
-const LearnReduxAndRef = () => {
+import { connect } from 'react-redux';
+import { mapDispatchToProps, mapStateToProps } from '../../Redux/action/Number';
+const LearnReduxAndRef = (props) => {
     const inputRef = useRef(null);
-    const [state ,dispatch] = useReducer(rootNumber, {
-        number: 0, showPra: false
-    })
+    // const [state ,dispatch] = useReducer(rootNumber, {
+    //     number: 0, showPra: false
+    // })
+    const looding = () => {
+        props.tang();
+        props.show()
+    }
     useEffect(() => {
         console.log(inputRef.current.value)
         inputRef.current.value = " Mình là Anikey"
@@ -22,7 +28,7 @@ const LearnReduxAndRef = () => {
             height: "500px",
             flexDirection: "column"
         }}>
-            <h1>{state.number}</h1>
+            <h1>{props.number}</h1>
             <button style={{
                 padding: "10px 20px",
                 fontSize: "18px",
@@ -30,11 +36,8 @@ const LearnReduxAndRef = () => {
                 color: "blue",
                 border: "1px solid blue",
                 cursor: "pointer"
-            }} onClick={() => {
-                dispatch({type: "tang"});
-                dispatch({type: "show"})
-            }}>Click</button>
-            {state.showPra && 
+            }} onClick={() => looding()}>Click</button>
+            {props.showPra && 
                 <p>Xin chào các bạn</p>
             }
             <div style={{
@@ -48,4 +51,4 @@ const LearnReduxAndRef = () => {
     );
 };
 
-export default LearnReduxAndRef;
+export default connect( mapStateToProps, mapDispatchToProps )(LearnReduxAndRef);

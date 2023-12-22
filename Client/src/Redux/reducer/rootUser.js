@@ -2,7 +2,7 @@ const initState = {
     user: [],
     post: []
 }
-const rootReducer = (state = initState, action) =>
+const rootUser = (state = initState, action) =>
 {
     switch(action.type){
         case 'DELETE__USER':
@@ -20,4 +20,4 @@ const rootReducer = (state = initState, action) =>
             return state
     }
 }
-export default rootReducer;
+export default rootUser;

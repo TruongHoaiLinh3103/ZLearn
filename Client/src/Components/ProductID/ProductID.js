@@ -3,6 +3,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import {toast} from "react-toastify";
 import { connect } from 'react-redux';
+import { mapStateToProps } from '../../Redux/action/Login';
 class ProductID extends Component {
     constructor(){
         super()
@@ -121,7 +122,7 @@ class ProductID extends Component {
         })
     }
     render() {
-        let user = this.props.dataRedux[0];
+        let user = this.props.dataUser[0];
         let { data } = this.state;
         let useData = Object.keys(data).length === 0
         return (
@@ -210,10 +211,5 @@ class ProductID extends Component {
         );
     }
 }
-const MapStateToProps = (state) => {
-    return {
-        dataRedux: state.user
-    }
-}
 
-export default connect(MapStateToProps)(withRouter(ProductID));
+export default connect(mapStateToProps)(withRouter(ProductID));

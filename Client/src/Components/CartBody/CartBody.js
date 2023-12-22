@@ -4,6 +4,8 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import cart from '../../Assets/Img/cart-empty.png';
+import { mapStateToProps } from "../../Redux/action/Login";
+
 class CartBody extends Component {
     constructor(){
         super()
@@ -19,7 +21,7 @@ class CartBody extends Component {
         })
     }
     render() {
-        let temp = this.props.dataRedux[0];
+        let temp = this.props.dataUser[0];
         let user = temp ? temp.username : undefined;
         return (
             <div className='grid'>
@@ -70,10 +72,4 @@ class CartBody extends Component {
     }
 }
 
-const MapStateToProps = (state) => {
-    return {
-        dataRedux: state.user
-    }
-}
-
-export default connect(MapStateToProps)(withRouter(CartBody));
+export default connect(mapStateToProps)(withRouter(CartBody));

@@ -1,4 +1,9 @@
-const rootNumber = (state, action) => {
+const initState = {
+    number: 0,
+    showPra: false
+}
+
+const rootNumber = (state = initState, action) => {
     switch(action.type) {
         case "tang":
             return{

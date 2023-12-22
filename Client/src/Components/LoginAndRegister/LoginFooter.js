@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom/cjs/react-router-dom';
 import axios from "axios";
 import { connect } from 'react-redux';
+import { mapDispatchToProps, mapStateToProps } from '../../Redux/action/Login';
 
 class LoginFooter extends Component {
     constructor(props) {
@@ -81,7 +82,7 @@ class LoginFooter extends Component {
                     }
                     else{
                         sessionStorage.setItem("accessToken", res.data)
-                        this.props.addUserRedux({
+                        this.props.addUser({
                             id: Math.floor(Math.random() * 100000),
                             username: this.state.useName
                         })
@@ -154,14 +155,5 @@ class LoginFooter extends Component {
         );
     }
 }
-const MapStateToProps = (state) => {
-    return {
-        dataRedux: state.user
-    }
-}
-const MapDispatchToProps = (dispatch) => {
-    return{
-        addUserRedux: (userAdd) => dispatch({type: 'ADD__USER', payload: userAdd})
-    }
-}
-export default connect(MapStateToProps, MapDispatchToProps)(withRouter(LoginFooter));
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginFooter));
